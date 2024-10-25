@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilaFácil - Evite Filas nos Supermercados</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o CSS externo -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Incluindo Chart.js -->
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">FilaFácil</div>
+            <nav>
+                <ul>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="horarios.html">Horários Ideais</a></li>
+                    <li><a href="mapeamento.html">Mapeamento de Supermercados</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Principal -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Descubra os melhores horários para evitar filas no supermercado!</h1>
+            <p>O FilaFácil é uma ferramenta projetada para ajudar os clientes a escolher os melhores horários para suas compras, evitando longas esperas nas filas.</p>
+            <a href="horarios.html" class="btn">Ver Horários Ideais</a>
+        </div>
+    </section>
+
+    <!-- Gráficos de Horários Ideais e Filas -->
+    <section class="graficos">
+        <div class="container">
+            <h2>Gráficos de Análise de Filas</h2>
+            <div class="chart-container">
+                <canvas id="melhoresHorariosChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="filasChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>© 2024 FilaFácil. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Gráfico de Melhores Horários
+        const ctxMelhoresHorarios = document.getElementById('melhoresHorariosChart').getContext('2d');
+        const melhoresHorariosChart = new Chart(ctxMelhoresHorarios, {
+            type: 'line',
+            data: {
+                labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'],
+                datasets: [{
+                    label: 'Melhores Horários',
+                    data: [5, 15, 25, 20, 10, 8, 3, 2, 4, 15, 30, 40],
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderColor: 'rgba(0, 123, 255, 1)',
+                    borderWidth: 2,
+                    pointRadius: 5,
+                    pointBackgroundColor: 'rgba(0, 123, 255, 1)',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Número de Clientes'
+                        }
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Horários'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'black'
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Filas
+        const ctxFilas = document.getElementById('filasChart').getContext('2d');
+        const filasChart = new Chart(ctxFilas, {
+            type: 'bar',
+            data: {
+                labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'],
+                datasets: [{
+                    label: 'Tamanho da Fila',
+                    data: [10, 30, 60, 40, 20, 15, 5, 3, 10, 25, 50, 70],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Número de Clientes na Fila'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'black'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Funciona - FilaFácil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FilaFácil</div>
+            <nav>
+                <ul>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="horarios.html">Horários Ideais</a></li>
+                    <li><a href="mapeamento.html">Mapeamento de Supermercados</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="como-funciona">
+        <div class="container">
+            <h2>Como Funciona</h2>
+            <p>O FilaFácil analisa dados de movimentação de clientes em supermercados, oferecendo informações sobre os melhores horários para visitação e evitando filas longas.</p>
+            <h3>Passo a Passo:</h3>
+            <ol>
+                <li>Escolha seu supermercado.</li>
+                <li>Veja os melhores horários.</li>
+                <li>Chegue e economize tempo!</li>
+            </ol>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 FilaFácil. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horários Ideais - FilaFácil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">FilaFácil</div>
+            <nav>
+                <ul>
+                    <li><a href="como-funciona.html">Como Funciona</a></li>
+                    <li><a href="horarios.html">Horários Ideais</a></li>
+                    <li><a href="mapeamento.html">Mapeamento de Supermercados</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="horarios">
+        <div class="container">
+            <h2>Horários Ideais para Ir ao Supermercado</h2>
+            <p>Verifique os melhores horários para evitar filas!</p>
+            <div class="chart-container">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 FilaFácil. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00', '19:00'],
+                datasets: [{
+                    label: 'Número de Clientes',
+                    data: [30, 45, 70, 90, 50, 40, 30,
+
